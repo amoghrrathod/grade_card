@@ -19,10 +19,7 @@ int get_student_info(Student *student) {
         return -69;
     }
     student->roll[strlen(student->roll)-1]='\0';
-    /*
-    printf("Enter semester: ");
-    scanf("%d\n",student->sem);
-    */
+    
     printf("Enter marks(out of 10) for Physics, Maths, Electrical, C Language, Mechanical (space-separated): ");
     
     //input marks

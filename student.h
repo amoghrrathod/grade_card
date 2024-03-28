@@ -19,5 +19,5 @@ typedef struct {
 } Student;
 
 int get_student_info(Student *student);
-
+int request_input();
 #endif
