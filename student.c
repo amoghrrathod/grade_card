@@ -13,13 +13,16 @@ int get_student_info(Student *student) {
     
     student->name[strlen(student->name)-1]='\0';
 
-    printf("Enter your roll number: ");
+    printf("Enter roll number: ");
     if (fgets(student->roll, MAX_ROLL, stdin)==NULL) {
         fprintf(stderr, "Error reading roll number.\n");
         return -69;
     }
     student->roll[strlen(student->roll)-1]='\0';
-    
+    /*
+    printf("Enter semester: ");
+    scanf("%d\n",student->sem);
+    */
     printf("Enter marks(out of 10) for Physics, Maths, Electrical, C Language, Mechanical (space-separated): ");
     
     //input marks
