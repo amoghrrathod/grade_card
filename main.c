@@ -2,9 +2,14 @@
 #include "student.h"
 
 int main() {
+    int add=1;
     int num_students = 1; // Number of students
-    Student students[num_students]; // Array of Student structures
+    printf("Enter number of students: ");
+    scanf("%d",&num_students);
+    getchar();
 
+    Student students[num_students]; // Array of Student structures
+    
     for (int i = 0; i < num_students; i++) {
         printf("\nStudent %d information:\n", i + 1);
         int result = get_student_info(&students[i]); // Get info for each student
