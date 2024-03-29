@@ -28,7 +28,7 @@ int get_student_info(Student *student) {
     }
     getchar();
     
-    printf("Enter section: ");
+    printf("Enter section: "); // Section is both characters and number as users may have sections like abc or 123
     if (fgets(student->sec, MAX_SEC, stdin)==NULL) {
         fprintf(stderr, "Error reading section.\n");
         return -4;

@@ -57,6 +57,7 @@ int main() {
                 printf("Exiting program...\n");
                 break;
             default:
+                clrscr();
                 printf("Invalid choice. Please enter a number between 1 and 3.\n");
         }
     } while (choice != 3);
