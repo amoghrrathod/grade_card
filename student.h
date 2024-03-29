@@ -9,13 +9,15 @@
 #define MAX_ROLL 15
 #define MAX_GPA 10.0
 #define MAX_SEM 8 
+#define MAX_SEC 10
 typedef struct {
     char name[MAX_NAME_LENGTH]; // Single name for the student
     int marks[NUM_SUBJECTS]; // Marks for all subjects
     int num_students;// Number of students stored
     char roll[MAX_ROLL];// Roll number of students
-    float gpa;//gpa
-    int sem[MAX_SEM];//SEM
+    float gpa;// GPA
+    int sem;// Semester
+    int sec;// Section
 } Student;
 
 int get_student_info(Student *student);
