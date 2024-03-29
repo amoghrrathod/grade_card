@@ -41,7 +41,7 @@ int main() {
                     printf("\n%-5s | %-20s | %-15s | %-7s | %-7s | %-5s\n","Srno.","Student Name","Roll Number","Semester","Section","CGPA");
                     printf("===============================================================================");
                     for (int i=0;i<num_students;i++) {
-                        printf("\n%-5d   %-20s   %-15s   %-7d   %-7d   %-5f\n",i+1,students[i].name,students[i].roll,students[i].sem,students[i].sec,students[i].gpa); 
+                        printf("\n%-5d   %-20s   %-15s   %-7d   %-7s   %-5f\n",i+1,students[i].name,students[i].roll,students[i].sem,students[i].sec,students[i].gpa); 
                         printf("%-7s Marks:\n","");
                         for (int j = 0; j < NUM_SUBJECTS;j++) {
                             printf("          - %s: %d\n", (j == 0) ? "Physics" : (j == 1) ? "Maths" : (j == 2) ? "Electrical" : (j == 3) ? "C Language" : "Mechanical", students[i].marks[j]);

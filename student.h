@@ -17,7 +17,7 @@ typedef struct {
     char roll[MAX_ROLL];// Roll number of students
     float gpa;// GPA
     int sem;// Semester
-    int sec;// Section
+    char sec[MAX_SEC];// Section
 } Student;
 
 int get_student_info(Student *student);

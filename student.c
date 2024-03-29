@@ -29,11 +29,11 @@ int get_student_info(Student *student) {
     getchar();
     
     printf("Enter section: ");
-    if(scanf("%d",&student->sec)!=1) {
+    if (fgets(student->sec, MAX_SEC, stdin)==NULL) {
         fprintf(stderr, "Error reading section.\n");
         return -4;
     }
-    getchar();
+    student->sec[strlen(student->sec)-1]='\0';
 
     printf("Enter marks(out of 10) for Physics, Maths, Electrical, C Language, Mechanical (space-separated): ");
     
