@@ -10,7 +10,7 @@ void display_menu() {
     printf("3. Search student\n");
     printf("4. Exit\n");
     printf("Enter your choice: ");
-}
+}   
 
 int main() {
     clrscr();

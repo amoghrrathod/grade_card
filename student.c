@@ -24,7 +24,7 @@ int get_student_info(Student *student) {
         free(student->roll);
         return -1;
     }
-
+    
     printf("Enter student name (or leave blank to finish): ");
     if (fgets(student->name, MAX_NAME_LENGTH, stdin) == NULL) {
         fprintf(stderr, "Error reading name.\n");
@@ -98,7 +98,7 @@ void search_student_by_roll(Student *students, int num_students, const char *rol
                     printf("===============================================================================");
     for (int i = 0; i < num_students; i++) {
         if (strcmp(students[i].roll, roll) == 0) {
-    printf("\n %-20s | %-15s | %-7d | %-7s | %-5f\n",students[i].name, students[i].roll, students[i].sem, students[i].sec, students[i].gpa);
+    printf("\n %-20s   %-15s   %-7d   %-7s   %-5f\n",students[i].name, students[i].roll, students[i].sem, students[i].sec, students[i].gpa);
             printf("%-7s Marks:\n","");
                         for (int j = 0; j < NUM_SUBJECTS;j++) {
                             printf("          - %s: %d\n", (j == 0) ? "Physics" : (j == 1) ? "Maths" : (j == 2) ? "Electrical" : (j == 3) ? "C Language" : "Mechanical", students[i].marks[j]);
@@ -111,8 +111,7 @@ void search_student_by_roll(Student *students, int num_students, const char *rol
         printf("No matching student found.\n");
     }
 }
-
-
+// free memory 
 void free_student_memory(Student *students) {
     free(students);
 }
