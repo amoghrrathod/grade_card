@@ -1,17 +1,20 @@
 #include <stdio.h>
 #include "student.h"
+void clrscr(){
+  printf("\033[1;1H\033[2J");
+}
 void display_menu() {
     printf("\nMenu:\n");
     printf("1. Add Student\n");
     printf("2. Display Grades\n");
-    printf("3. Exit\n");
+    printf("3. Search student\n");
+    printf("4. Exit\n");
     printf("Enter your choice: ");
 }
-void clrscr(){
-  printf("\033[1;1H\033[2J");
-}
+
 int main() {
-    int num_students = 0; 
+    clrscr();
+    int num_students = 0;
     Student students[MAX_STUDENTS]; // array of student structures
     int choice;
 
@@ -54,13 +57,25 @@ int main() {
                 break;
             case 3:
                 clrscr();
+                if (num_students > 0) {
+                    char search[MAX_NAME_LENGTH];
+                    printf("Enter student name to search: ");
+                    scanf("%s", search);
+                    search_student_by_name(students, num_students, search);
+                } else {
+                    printf("No students added yet.\n");
+                }
+                break;
+                break;
+            case 4:
+                clrscr();
                 printf("Exiting program...\n");
                 break;
             default:
                 clrscr();
-                printf("Invalid choice. Please enter a number between 1 and 3.\n");
+                printf("Invalid choice. Please enter a number between 1 and 4.\n");
         }
-    } while (choice != 3);
+    } while (choice != 4);
 
     return 0;
 }
