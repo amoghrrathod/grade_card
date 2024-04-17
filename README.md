@@ -1,9 +1,8 @@
 # GRADE CARD IN C
 
+To run this program simply download it and run it with the below commands :
 ```
-To run this program simply download it with the below command:
 `git clone https://github.com/arr3939/grade_card && cd grade_card`
-To run it paste the below command:
 `make && ./main`
 ```
 # How to run demo:
