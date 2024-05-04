@@ -100,7 +100,6 @@ void display_grades(const char *filename) {
          "==========\n");
 
   char line[100];
-  fgets(line, sizeof(line), file); // To skip the first line
 
   while (fgets(line, sizeof(line), file)) {
     char name[MAX_NAME_LENGTH], roll[MAX_ROLL_LENGTH], sec[MAX_SEC_LENGTH];

@@ -42,6 +42,8 @@ int main() {
       } else {
         printf("Maximum number of students reached.\n");
       }
+      fflush(file);
+      fseek(file, 0, SEEK_SET);
       clrscr();
       break;
     case 2:
