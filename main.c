@@ -45,47 +45,6 @@ int main() {
       clrscr();
       break;
     case 2:
-      /*clrscr();
-      // Open csv file in write mode
-      FILE *student_info = fopen("student_info.csv", "w");
-      if (!student_info) {
-        printf("Failed to open file.");
-        break;
-      }
-
-      if (num_students > 0) {
-        printf("\nGrade Card\n");
-        fprintf(student_info,
-                "Srno., Student Name, Roll Number, Semester, Section, CGPA, "
-                "Physics, Maths, Electrical, C Language, Mechanical\n");
-        for (int i = 0; i < num_students; i++) {
-          fprintf(student_info, "%d, %s, %s, %d, %s, %f, %d, %d, %d, %d, %d\n",
-                  i + 1, students[i].name, students[i].roll, students[i].sem,
-                  students[i].sec, students[i].gpa, students[i].marks[0],
-                  students[i].marks[1], students[i].marks[2],
-                  students[i].marks[3], students[i].marks[4]);
-
-          printf("\n%-5d   %-20s   %-15s   %-7d   %-7s   %-5f\n", i + 1,
-                 students[i].name, students[i].roll, students[i].sem,
-                 students[i].sec, students[i].gpa);
-          printf("%-7s Marks:\n", "");
-          for (int j = 0; j < NUM_SUBJECTS; j++) {
-            printf("          - %s: %d\n",
-                   (j == 0)   ? "Physics"
-                   : (j == 1) ? "Maths"
-                   : (j == 2) ? "Electrical"
-                   : (j == 3) ? "C Language"
-                              : "Mechanical",
-                   students[i].marks[j]);
-          }
-          printf("============================================================="
-                 "==================\n");
-        }
-        fclose(student_info); // Close the file after writing all data
-      } else {
-        printf("No students added yet.\n");
-        fclose(student_info); // Close the file if no data is written
-        }*/
       clrscr();
       fflush(file);
       fseek(file, 0, SEEK_SET);
