@@ -50,9 +50,12 @@ int main() {
       clrscr();
       fflush(file);
       fseek(file, 0, SEEK_SET);
-      display_grades("student_info.csv");
-      break;
-
+      rewind(file);
+      if (ftell(file)==0) {
+          printf("No student data found.\n");
+      } else {
+        display_grades("student_info.csv");
+      } 
       break;
     case 3:
       clrscr();
