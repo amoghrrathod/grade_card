@@ -18,8 +18,7 @@ typedef struct {
 void erase_student_data(const char *filename);
 int get_student_info(Student *student);
 void display_grades(const char *filename);
-void search_student_by_name(Student *students, int num_students,
-                            const char *roll);
+void search_student_by_name(const char *filename, const char *name);
 void display_menu();
 void clrscr();
 void free_student_memory(Student *students);

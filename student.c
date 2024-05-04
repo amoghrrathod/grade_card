@@ -134,20 +134,39 @@ void display_grades(const char *filename) {
   fclose(file);
 }
 // Function to search for a student by name
-void search_student_by_name(Student *students, int num_students,
-                            const char *name) {
+void search_student_by_name(const char *filename, const char *name) {
   int found = 0;
-  printf("\nSearch Results for \"%s\":\n", name);
+  FILE *file = fopen(filename, "r");
+  if (file == NULL) {
+    printf("Error opening file: %s\n", filename);
+    return;
+  }
+  printf("\nSearch results: \n");
   printf("\nGrade Card\n");
   printf("\n %-20s | %-15s | %-7s | %-7s | %-5s\n", "Student Name",
          "Roll Number", "Semester", "Section", "CGPA");
   printf("====================================================================="
          "==========\n");
-  for (int i = 0; i < num_students; i++) {
-    if (strcmp(students[i].name, name) == 0) {
-      printf("\n %-20s | %-15s | %-7d | %-7s | %-5f\n", students[i].name,
-             students[i].roll, students[i].sem, students[i].sec,
-             students[i].gpa);
+
+  char line[100];
+  fgets(line, sizeof(line), file); // To skip the first line
+
+  while (fgets(line, sizeof(line), file)) {
+    char std_name[MAX_NAME_LENGTH], roll[MAX_ROLL_LENGTH], sec[MAX_SEC_LENGTH];
+    int sem, marks[NUM_SUBJECTS];
+    float gpa;
+    // Parse CSV line
+    sscanf(line, "%[^,],%[^,],%d,%[^,],%d,%d,%d,%d,%d", std_name, roll, &sem,
+           sec, &marks[0], &marks[1], &marks[2], &marks[3], &marks[4]);
+
+    // Calculate GPA
+    gpa = ((5 * marks[0]) + (4 * marks[1]) + (4 * marks[2]) + (marks[3] * 5) +
+           (marks[4] * 3)) /
+          21.0;
+    printf("\n");
+    if (strcmp(std_name, name) == 0) {
+      printf("\n %-20s   %-15s   %-7d   %-7s   %-5f\n", std_name, roll, sem,
+             sec, gpa);
       printf("%-7s Marks:\n", "");
       for (int j = 0; j < NUM_SUBJECTS; j++) {
         printf("          - %s: %d\n",
@@ -156,16 +175,18 @@ void search_student_by_name(Student *students, int num_students,
                : (j == 2) ? "Electrical"
                : (j == 3) ? "C Language"
                           : "Mechanical",
-               students[i].marks[j]);
+               marks[j]);
       }
       printf("\n");
       found = 1;
     }
   }
+
   if (!found) {
     printf("No matching student found.\n");
   }
 }
+
 void erase_student_data(const char *filename) {
   FILE *file = fopen(filename, "w");
   if (file == NULL) {

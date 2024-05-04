@@ -90,8 +90,7 @@ int main() {
       char search[MAX_NAME_LENGTH];
       printf("Enter student name to search: ");
       scanf("%s", search);
-      search_student_by_name(students, num_students, search);
-
+      search_student_by_name("student_info.csv", search);
       break;
     case 4:
       clrscr();
