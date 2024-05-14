@@ -161,7 +161,6 @@ void search_student_by_name(const char *filename, const char *name) {
     gpa = ((5 * marks[0]) + (4 * marks[1]) + (4 * marks[2]) + (marks[3] * 5) +
            (marks[4] * 3)) /
           21.0;
-    printf("\n");
     if (strcmp(std_name, name) == 0) {
       printf("\n %-20s   %-15s   %-7d   %-7s   %-5f\n", std_name, roll, sem,
              sec, gpa);
