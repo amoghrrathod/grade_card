@@ -18,12 +18,6 @@ int main() {
   int num_students = 0;
   Student students[MAX_STUDENTS]; // array of student structures
   int choice;
-  
-  FILE *file = fopen("student_info.csv", "a");
-    if (file == NULL) {
-        printf("Error opening file: %s\n", "student_info.csv");
-        return -1;
-    }
 
   do {
     display_menu();
@@ -42,25 +36,13 @@ int main() {
       } else {
         printf("Maximum number of students reached.\n");
       }
-      fflush(file);
-      fseek(file, 0, SEEK_SET);
-      clrscr();
       break;
     case 2:
       clrscr();
-      fflush(file);
-      fseek(file, 0, SEEK_SET);
-      rewind(file);
-      if (ftell(file)==0) {
-          printf("No student data found.\n");
-      } else {
-        display_grades("student_info.csv");
-      } 
+      display_grades("student_info.csv");
       break;
     case 3:
       clrscr();
-      fflush(file);
-      fseek(file, 0, SEEK_SET);
       char search[MAX_NAME_LENGTH];
       printf("Enter student name to search: ");
       scanf("%s", search);
@@ -76,9 +58,8 @@ int main() {
       break;
     default:
       clrscr();
-      printf("Invalid choice. Please enter a number between 1 and 4.\n");
+      printf("Invalid choice. Please enter a number between 1 and 5.\n");
     }
-    fclose(file);
   } while (choice != 5);
 
   return 0;
